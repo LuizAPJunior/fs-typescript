@@ -6,6 +6,7 @@ import { Button, Divider, Container, Typography } from '@mui/material';
 import { apiBaseUrl } from "./constants";
 import { Patient } from "./types";
 
+// import pingService from "./services/ping";
 import patientService from "./services/patients";
 import PatientListPage from "./components/PatientListPage";
 
@@ -13,7 +14,7 @@ const App = () => {
   const [patients, setPatients] = useState<Patient[]>([]);
 
   useEffect(() => {
-    void axios.get<void>(`${apiBaseUrl}/ping`);
+    void axios.get<string>(`${apiBaseUrl}/ping`);
 
     const fetchPatientList = async () => {
       const patients = await patientService.getAll();
